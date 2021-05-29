@@ -1,9 +1,8 @@
-# In order to stop the server, in the terminal press CTRL+C and then on the app press disconnect
+# in order to reset this program, delete the terminal and restart the script
 
-#this script is for testing server connection to the esp8266
+# this script is for testing server connection to the esp8266
 
 import socket
-import network
 #from mobile-cmd_conversion import convertToTwist
 
 # create socket 
