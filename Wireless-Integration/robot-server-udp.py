@@ -1,8 +1,8 @@
 # In order to stop the server, in the terminal press CTRL+C and then on the app press disconnect
 
 import socket
-from convertToTwist import convertToTwist
-
+import network
+#from mobile-cmd_conversion import convertToTwist
 
 
 # Function declaration
@@ -23,14 +23,19 @@ def convertToTwist(data):
 
     #TODO convert to twist object
 
+# Determine SERVER_IP
 
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)      
-print ("Socket successfully created")
+
+# create socket
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)    
+SERVER_HOSTNAME = socket.gethostname()
+SERVER_IP = socket.gethostbyname(SERVER_HOSTNAME) 
+print ("Socket successfully created. The server Hostname is", SERVER_HOSTNAME, "and the IP address is", SERVER_IP, "\n")
 port = 8001
 s.bind(('', port))
-print ("Socket binded to %s" %(port))
-s.listen(1)
-print ("Socket is listening... Press the Connect button on the android app")
+print ("Socket binded to port %s\n" %(port))
+s.listen(5)
+print ("Socket is listening... Connect to the server via a mobile app\n")
 
 
 while True:
@@ -41,8 +46,8 @@ while True:
         try:
             data =c.recv(1024)
             data =data.decode('utf8')
-            print('Command sent:', data)
-            convertToTwist(data)
+            print( data)
+            #convertToTwist(data) # TODO use imports to call function
             if not data:
                 print("Disconnected from ", addr)
                 break
