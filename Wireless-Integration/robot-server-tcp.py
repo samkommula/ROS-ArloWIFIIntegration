@@ -4,15 +4,15 @@ import socket
 import network
 #from mobile-cmd_conversion import convertToTwist
 
-# create socket
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)    
+# create socket 
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)    # TODO SOCK_STREAM is for TCP, we need to change to SOCK_DGRAM for udp
 SERVER_HOSTNAME = socket.gethostname()
 SERVER_IP = socket.gethostbyname(SERVER_HOSTNAME) 
 print ("Socket successfully created. The server Hostname is", SERVER_HOSTNAME, "and the IP address is", SERVER_IP, "\n")
 port = 8001
 s.bind(('', port))
 print ("Socket binded to port %s\n" %(port))
-s.listen(5)
+s.listen(1)
 print ("Socket is listening... Connect to the server via a mobile app\n")
 
 
