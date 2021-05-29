@@ -4,28 +4,6 @@ import socket
 import network
 #from mobile-cmd_conversion import convertToTwist
 
-
-# Function declaration
-def convertToTwist(data):
-    if data == 'Stop\n':
-        x = 0
-        y = 0
-        z = 0
-        th = 0
-    else:    
-        x = moveBindings[data][0]
-        y = moveBindings[data][1]
-        z = moveBindings[data][2]
-        th = moveBindings[data][3]
-
-    # TODO this is just for programming
-    print('x = ', x, ', ' , 'y = ', y, ', ', 'y = ', z, ', ', 'th = ', th, '\n')
-
-    #TODO convert to twist object
-
-# Determine SERVER_IP
-
-
 # create socket
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)    
 SERVER_HOSTNAME = socket.gethostname()
